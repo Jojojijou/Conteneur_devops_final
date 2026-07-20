@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deploy
+
+spec:
+  replicas: 2 # 2 noeuds PhpMyAdmin à créer et à maintenir au minimum
+  selector: 
+    matchLabels: 
+      app: php
+  
+  template: 
+
+    metadata:
+      labels:
+        app: php
+
+    spec:
+      containers:
+        - name: php 
+          image: phpmyadmin:latest 
+          ports:
+            - containerPort: 3306 
+          
+          env:
+          - name: PMA_ARBITRARY
+            value: "1"

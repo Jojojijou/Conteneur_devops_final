@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+
+spec:
+  replicas: 1 # 1 seul noeud mysql à créer et à maintenir
+  selector: 
+    matchLabels: 
+      app: mysql
+  
+  template: 
+
+    metadata:
+      labels:
+        app: mysql
+
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8 
+          ports:
+            - containerPort: 3306 
+            
+          env: # Mise en place de variable d'environnement pour mysql sur le pod non sécurisé pour le moment
+          - name: MYSQL_ROOT_PASSWORD
+            value: "rootroot"

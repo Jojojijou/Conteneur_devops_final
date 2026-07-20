@@ -1,0 +1,15 @@
+# Service Cluster IP qui va exposer les pods en interne
+# L'@IP est interne au Cluster, c'est pas nous qui la mettons
+apiVersion: v1
+kind: Service # Type de ressource service
+
+metadata:
+  name: nginx # Nom de la ressource
+
+spec:
+  selector:
+    app: web # Pour tous les pods avec le label "web" (défini dans le fichier deployment)
+
+  ports: # On ouvre les ports xxxx : (ici 80 pour http)
+    - port: 80
+      targetPort: 80

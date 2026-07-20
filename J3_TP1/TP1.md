@@ -1,0 +1,42 @@
+# Migrer le mot de passe vers un Secret
+
+Génération du secret : 
+![secret](./images/image1.png)
+
+Nouveau fichier mysql-deployment.yaml avec utilisation des secret : 
+``` yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+
+spec:
+  replicas: 1 # 1 seul noeud mysql à créer et à maintenir
+  selector: 
+    matchLabels: 
+      app: mysql
+
+  template: 
+
+    metadata:
+      labels:
+        app: mysql
+
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8 
+          ports:
+            - containerPort: 3306 
+            
+          env: # Mise en place de variable d'environnement pour mysql sur le pod
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret #Utilisation du secret généré
+                key: MYSQL_ROOT_PASSWORD #Récupération de la valeur que l'on peut récupérer avec la commande : sudo kubectl -n database get secret mysql-secret -o yaml
+
+```
+
+Résultat avec l'apply du fichier : 
+![image](./images/image2.png)

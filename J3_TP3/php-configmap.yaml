@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: php-configmap
+
+data: 
+  pma_arbitrary: "1"

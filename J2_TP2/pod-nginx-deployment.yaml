@@ -1,0 +1,25 @@
+# Version API et kind/type de ressource créée:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+
+# Spécifications de la ressource:
+spec:
+  replicas: 3 # Nombre de pods à maintenir
+  selector: 
+    matchLabels: # On mettra le label web aux pods créés
+      app: web
+  
+  template: # La template de pods à déployer
+
+    metadata:
+      labels:
+        app: web # Le label
+
+    spec:
+      containers:
+        - name: nginx # le nom des pods
+          image: nginx:1.27 # L'image des pods
+          ports:
+            - containerPort: 80 # Le numéro de port ouvert sur le pod
