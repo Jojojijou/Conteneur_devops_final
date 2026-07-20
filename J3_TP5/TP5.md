@@ -1,4 +1,4 @@
-### TP13 NetworkPolicy : les 3 policies obligatoires
+### TP5 NetworkPolicy : les 3 policies obligatoires
 
 Voici les 3 fichiers de policy : 
 

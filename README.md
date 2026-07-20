@@ -9,8 +9,8 @@ Ce dépôt contient tous les fichiers des TPs du J2 et J3 (fichiers yaml et capt
 * [J2_TP6](./J2_TP6/TP6.md)☑️
 * [J3_TP1](./J3_TP1/TP1.md)☑️
 * [J3_TP2](./J3_TP2/TP2.md)☑️
-* [J3_TP3](./J2_TP3/TP3.md)☑️
+* [J3_TP3](./J3_TP3/TP3.md)☑️
 * J3_TP4 (optionnel) ❌
-* [J3_TP5](./J2_TP3/TP5.md)☑️
+* [J3_TP5](./J3_TP3/TP5.md)☑️
 * J3_TP6 (optionnel) ❌
 
